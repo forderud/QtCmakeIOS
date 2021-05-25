@@ -11,13 +11,21 @@ set(CMAKE_AUTOUIC ON)
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
+add_library(MyLib
+    Mylib.cpp
+    Mylib.h
+)
+
 add_executable(helloworld MACOSX_BUNDLE
     main.cpp
     rasterwindow.cpp
     rasterwindow.h
 )
 
-target_link_libraries(helloworld Qt5::Widgets)
+target_link_libraries(helloworld PRIVATE
+    MyLib
+    Qt5::Widgets
+)
 
 if(IOS)
     set_target_properties(helloworld PROPERTIES

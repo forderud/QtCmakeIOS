@@ -51,6 +51,7 @@
 #include <QtGui>
 
 #include "rasterwindow.h"
+#include "Mylib.h"
 
 //! [5]
 class AnalogClockWindow : public RasterWindow
@@ -162,6 +163,10 @@ void AnalogClockWindow::render(QPainter *p)
 int main(int argc, char **argv)
 {
     QGuiApplication app(argc, argv);
+
+    int sum = add(1,2);
+    if (sum != 3)
+        return -1;
 
     AnalogClockWindow clock;
     clock.show();
