@@ -13,6 +13,8 @@ find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 add_executable(helloworld
     main.cpp
+    rasterwindow.cpp
+    rasterwindow.h
 )
 
 target_link_libraries(helloworld Qt5::Widgets)
