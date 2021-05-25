@@ -21,7 +21,7 @@ target_link_libraries(helloworld Qt5::Widgets)
 
 if(IOS)
     set_target_properties(helloworld PROPERTIES
-        MACOSX_BUNDLE_GUI_IDENTIFIER helloworld
+        MACOSX_BUNDLE_GUI_IDENTIFIER "helloworld"
         XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "iPhone Developer"
         XCODE_ATTRIBUTE_DEVELOPMENT_TEAM $ENV{XCODE_ATTRIBUTE_DEVELOPMENT_TEAM}
     )
