@@ -1,6 +1,6 @@
 #include <QtGui>
 #include "rasterwindow.h"
-#include "Mylib.h"
+#include "MyLib.h"
 
 class AnalogClockWindow : public RasterWindow
 {
