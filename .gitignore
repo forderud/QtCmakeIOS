@@ -1,7 +1,7 @@
 /.vs
 /CMakeFiles
-/helloworld.dir
-/helloworld_autogen
+/AnalogClock.dir
+/AnalogClock_autogen
 /MyLib.dir
 /MyLib_autogen
 /cmake_install.cmake
