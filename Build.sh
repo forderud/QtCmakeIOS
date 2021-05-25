@@ -1,7 +1,7 @@
-# Script assumes that the following env.vars have already been set:
-# * XCODE_ATTRIBUTE_DEVELOPMENT_TEAM
-# * IOS_TOOLCHAIN
-# * Qt SDK added to PATH
+# Script assumes the following:
+# * XCODE_ATTRIBUTE_DEVELOPMENT_TEAM env.var
+# * IOS_TOOLCHAIN env.var pointing to a CMake toolchain for iOS (e.g. from https://github.com/leetal/ios-cmake )
+# * Qt SDK "bin" folder added to PATH
 
 echo Clearing clone...
 git clean -fxd
