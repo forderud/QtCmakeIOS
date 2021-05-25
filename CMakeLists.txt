@@ -32,18 +32,16 @@ target_link_libraries(AnalogClock PRIVATE
     Qt5::Widgets
 )
 
-if(IOS)
-    set_target_properties(AnalogClock PROPERTIES
-        MACOSX_BUNDLE_GUI_IDENTIFIER AnalogClock2   # must be unique
-        XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "iPhone Developer"
-        XCODE_ATTRIBUTE_DEVELOPMENT_TEAM $ENV{XCODE_ATTRIBUTE_DEVELOPMENT_TEAM}
-        XCODE_LINK_BUILD_PHASE_MODE BUILT_ONLY
-        XCODE_EMBED_FRAMEWORKS MyLib
-        XCODE_EMBED_FRAMEWORKS_REMOVE_HEADERS_ON_COPY ON
-        XCODE_EMBED_FRAMEWORKS_CODE_SIGN_ON_COPY ON
-        #XCODE_EMBED_FRAMEWORKS_PATH ""
-    )
+set_target_properties(AnalogClock PROPERTIES
+    MACOSX_BUNDLE_GUI_IDENTIFIER AnalogClock2   # must be unique
+    XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "iPhone Developer"
+    XCODE_ATTRIBUTE_DEVELOPMENT_TEAM $ENV{XCODE_ATTRIBUTE_DEVELOPMENT_TEAM}
+    XCODE_LINK_BUILD_PHASE_MODE BUILT_ONLY
+    XCODE_EMBED_FRAMEWORKS MyLib
+    XCODE_EMBED_FRAMEWORKS_REMOVE_HEADERS_ON_COPY ON
+    XCODE_EMBED_FRAMEWORKS_CODE_SIGN_ON_COPY ON
+    #XCODE_EMBED_FRAMEWORKS_PATH ""
+)
 
-    # Temporary solution until Qt6 (https://bugreports.qt.io/browse/QTBUG-87060)
-    target_link_options(AnalogClock PRIVATE "-Wl,-e,_qt_main_wrapper")
-endif()
+# Temporary solution until Qt6 (https://bugreports.qt.io/browse/QTBUG-87060)
+target_link_options(AnalogClock PRIVATE "-Wl,-e,_qt_main_wrapper")
