@@ -1,3 +1,4 @@
+/* Based on https://doc.qt.io/qt-5/qtwidgets-widgets-analogclock-example.html example */
 #include <QtGui>
 #include "rasterwindow.h"
 #include "MyLib.h"
