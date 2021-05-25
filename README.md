@@ -1,6 +1,8 @@
 # QtCmakeIOS
 
-Sample project for experimenting with shared libraries (frameworks) on iOS when using CMake as build system and Qt as GUI library.
+Sample project for experimenting with shared libraries (frameworks) on iOS when using [CMake](https://cmake.org/) as build system and [Qt](https://www.qt.io/) as GUI library.
+
+Run `Build.sh` from the macOS terminal to get started.
 
 Limitation: The shared library does not use Qt, since that's not supported before https://bugreports.qt.io/browse/QTBUG-85974 is fixed.
 
