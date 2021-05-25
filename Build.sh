@@ -3,7 +3,7 @@
 # * IOS_TOOLCHAIN env.var pointing to a CMake toolchain for iOS (e.g. from https://github.com/leetal/ios-cmake )
 # * Qt SDK "bin" folder added to PATH
 
-echo Clearing clone...
+echo Cleaning clone...
 git clean -fxd
 git pull
 
