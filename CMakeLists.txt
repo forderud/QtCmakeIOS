@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.16) # 3.20
 
 project(analogclock VERSION 1.0.0 LANGUAGES CXX)
 
@@ -11,10 +11,20 @@ set(CMAKE_AUTOUIC ON)
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
-add_executable(helloworld
+add_executable(helloworld MACOSX_BUNDLE
     main.cpp
     rasterwindow.cpp
     rasterwindow.h
 )
 
 target_link_libraries(helloworld Qt5::Widgets)
+
+if(IOS)
+    set_target_properties(helloworld PROPERTIES
+        MACOSX_BUNDLE_GUI_IDENTIFIER helloworld
+        XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "iPhone Developer"
+        XCODE_ATTRIBUTE_DEVELOPMENT_TEAM $ENV{XCODE_ATTRIBUTE_DEVELOPMENT_TEAM}
+    )
+
+    target_link_options(helloworld PRIVATE "-Wl,-e,_qt_main_wrapper")
+endif()
