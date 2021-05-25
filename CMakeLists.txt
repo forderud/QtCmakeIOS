@@ -26,20 +26,20 @@ set_target_properties(MyLib PROPERTIES
 )
 
 
-add_executable(helloworld MACOSX_BUNDLE
+add_executable(AnalogClock MACOSX_BUNDLE
     main.cpp
     rasterwindow.cpp
     rasterwindow.h
 )
 
-target_link_libraries(helloworld PRIVATE
+target_link_libraries(AnalogClock PRIVATE
     MyLib
     Qt5::Widgets
 )
 
 if(IOS)
-    set_target_properties(helloworld PROPERTIES
-        MACOSX_BUNDLE_GUI_IDENTIFIER helloworld23     # must be unique
+    set_target_properties(AnalogClock PROPERTIES
+        MACOSX_BUNDLE_GUI_IDENTIFIER AnalogClock2   # must be unique
         XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "iPhone Developer"
         XCODE_ATTRIBUTE_DEVELOPMENT_TEAM $ENV{XCODE_ATTRIBUTE_DEVELOPMENT_TEAM}
         XCODE_LINK_BUILD_PHASE_MODE BUILT_ONLY
@@ -50,5 +50,5 @@ if(IOS)
     )
 
     # Temporary solution until Qt6 (https://bugreports.qt.io/browse/QTBUG-87060)
-    target_link_options(helloworld PRIVATE "-Wl,-e,_qt_main_wrapper")
+    target_link_options(AnalogClock PRIVATE "-Wl,-e,_qt_main_wrapper")
 endif()
