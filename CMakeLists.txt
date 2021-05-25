@@ -11,17 +11,20 @@ set(CMAKE_AUTOUIC ON)
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
+# create MyLib shared lib
 add_library(MyLib SHARED
     MyLib.cpp
     MyLib.h
 )
 
+# configure MyLib as "framework" on iOS
 set_target_properties(MyLib PROPERTIES
     FRAMEWORK TRUE
     MACOSX_FRAMEWORK_IDENTIFIER com.ge.MyLib
     XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "iPhone Developer"
     XCODE_ATTRIBUTE_DEVELOPMENT_TEAM $ENV{XCODE_ATTRIBUTE_DEVELOPMENT_TEAM}
 )
+
 
 add_executable(helloworld MACOSX_BUNDLE
     main.cpp
@@ -46,5 +49,6 @@ if(IOS)
         #XCODE_EMBED_FRAMEWORKS_PATH ""
     )
 
+    # Temporary solution until Qt6 (https://bugreports.qt.io/browse/QTBUG-87060)
     target_link_options(helloworld PRIVATE "-Wl,-e,_qt_main_wrapper")
 endif()
