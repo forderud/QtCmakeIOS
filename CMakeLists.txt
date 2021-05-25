@@ -11,9 +11,16 @@ set(CMAKE_AUTOUIC ON)
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
-add_library(MyLib
+add_library(MyLib SHARED
     Mylib.cpp
     Mylib.h
+)
+
+set_target_properties(MyLib PROPERTIES
+    FRAMEWORK TRUE
+    MACOSX_FRAMEWORK_IDENTIFIER com.ge.MyLib
+    XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "iPhone Developer"
+    XCODE_ATTRIBUTE_DEVELOPMENT_TEAM $ENV{XCODE_ATTRIBUTE_DEVELOPMENT_TEAM}
 )
 
 add_executable(helloworld MACOSX_BUNDLE
@@ -32,6 +39,11 @@ if(IOS)
         MACOSX_BUNDLE_GUI_IDENTIFIER helloworld23     # must be unique
         XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "iPhone Developer"
         XCODE_ATTRIBUTE_DEVELOPMENT_TEAM $ENV{XCODE_ATTRIBUTE_DEVELOPMENT_TEAM}
+        XCODE_LINK_BUILD_PHASE_MODE BUILT_ONLY
+        XCODE_EMBED_FRAMEWORKS MyLib
+        XCODE_EMBED_FRAMEWORKS_REMOVE_HEADERS_ON_COPY ON
+        XCODE_EMBED_FRAMEWORKS_CODE_SIGN_ON_COPY ON
+        #XCODE_EMBED_FRAMEWORKS_PATH ""
     )
 
     target_link_options(helloworld PRIVATE "-Wl,-e,_qt_main_wrapper")
