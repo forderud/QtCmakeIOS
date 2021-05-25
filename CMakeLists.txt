@@ -12,8 +12,8 @@ set(CMAKE_AUTOUIC ON)
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 add_library(MyLib SHARED
-    Mylib.cpp
-    Mylib.h
+    MyLib.cpp
+    MyLib.h
 )
 
 set_target_properties(MyLib PROPERTIES
