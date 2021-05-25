@@ -1,7 +1,13 @@
 /.vs
 /CMakeFiles
+/helloworld.dir
+/helloworld_autogen
 /cmake_install.cmake
 /CMakeCache.txt
 /analogclock.sln
 /*.vcxproj
 /*.vcxproj.filters
+/*.vcxproj.user
+/Debug
+/Release
+/x64
