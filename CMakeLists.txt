@@ -15,7 +15,7 @@ add_library(MyLib SHARED
 # configure MyLib as "framework" on iOS
 set_target_properties(MyLib PROPERTIES
     FRAMEWORK TRUE
-    MACOSX_FRAMEWORK_IDENTIFIER com.ge.MyLib
+    MACOSX_FRAMEWORK_IDENTIFIER com.mycompany.MyLib
     XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "iPhone Developer"
     XCODE_ATTRIBUTE_DEVELOPMENT_TEAM $ENV{XCODE_ATTRIBUTE_DEVELOPMENT_TEAM}
 )
