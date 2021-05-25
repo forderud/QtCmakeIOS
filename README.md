@@ -11,6 +11,7 @@ CMake properties used:
 * [XCODE_LINK_BUILD_PHASE_MODE](https://cmake.org/cmake/help/latest/prop_tgt/XCODE_LINK_BUILD_PHASE_MODE.html) for "Link Binary With Libraries" (since CMake 3.19)
 * [XCODE_EMBED_FRAMEWORKS](https://cmake.org/cmake/help/latest/prop_tgt/XCODE_EMBED_type.html) for "Embed Frameworks" (since CMake 3.20)
 
+### Observed problems
 **WARNING: Doesn`t work yet!** App startup fails with the following error:
 ```
 dyld: Library not loaded: @rpath/MyLib.framework/MyLib
@@ -20,3 +21,5 @@ dyld: launch, loading dependent libraries
 DYLD_LIBRARY_PATH=/usr/lib/system/introspection
 DYLD_INSERT_LIBRARIES=/Developer/usr/lib/libBacktraceRecording.dylib:/Developer/usr/lib/libMainThreadChecker.dylib:/Developer/Library/PrivateFrameworks/DTDDISupport.framework/libViewDebuggerSupport.dylib:/Developer/Library/PrivateFrameworks/GPUTools.framework/libglInterpose.dylib:/usr/lib/libMTLCapture.dylib
 ```
+
+Work-around: Remove and add "MyLib.framework/MyLib" back again from "Frameworks, Libraries, and Embedded Content" in Xcode.
