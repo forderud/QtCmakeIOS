@@ -4,6 +4,8 @@ project(analogclock VERSION 1.0.0 LANGUAGES CXX)
 
 set(CMAKE_AUTOMOC ON)
 
+set (CMAKE_BUILD_WITH_INSTALL_RPATH YES)
+
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 # create MyLib shared lib
