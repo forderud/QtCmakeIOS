@@ -38,6 +38,7 @@ set_target_properties(AnalogClock PROPERTIES
     XCODE_EMBED_FRAMEWORKS MyLib
     XCODE_EMBED_FRAMEWORKS_CODE_SIGN_ON_COPY ON
     #XCODE_EMBED_FRAMEWORKS_PATH ""
+    XCODE_ATTRIBUTE_LD_RUNPATH_SEARCH_PATHS "@executable_path/Frameworks"
 )
 
 # Temporary solution until Qt6 (https://bugreports.qt.io/browse/QTBUG-87060)
