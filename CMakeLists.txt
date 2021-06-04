@@ -4,7 +4,8 @@ project(analogclock VERSION 1.0.0 LANGUAGES CXX)
 
 set(CMAKE_AUTOMOC ON)
 
-set (CMAKE_BUILD_WITH_INSTALL_RPATH YES)
+set(CMAKE_BUILD_WITH_INSTALL_RPATH YES)
+set(CMAKE_XCODE_ATTRIBUTE_LD_RUNPATH_SEARCH_PATHS "@executable_path/Frameworks")
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
@@ -37,7 +38,6 @@ set_target_properties(AnalogClock PROPERTIES
     XCODE_LINK_BUILD_PHASE_MODE BUILT_ONLY
     XCODE_EMBED_FRAMEWORKS MyLib
     XCODE_EMBED_FRAMEWORKS_CODE_SIGN_ON_COPY ON
-    XCODE_ATTRIBUTE_LD_RUNPATH_SEARCH_PATHS "@executable_path/Frameworks"
 )
 
 # Temporary solution until Qt6 (https://bugreports.qt.io/browse/QTBUG-87060)
