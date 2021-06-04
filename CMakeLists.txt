@@ -13,6 +13,8 @@ find_package(Qt5 COMPONENTS Widgets REQUIRED)
 add_library(MyLib SHARED
     MyLib.cpp
     MyLib.h
+    rasterwindow.cpp
+    rasterwindow.h
     FileToEmbed.txt
 )
 
@@ -24,16 +26,20 @@ set_target_properties(MyLib PROPERTIES
     RESOURCE FileToEmbed.txt
 )
 
+target_link_libraries(MyLib PUBLIC
+    Qt5::Widgets
+)
+
+# ignore missing main function in dylib
+target_link_options(MyLib PRIVATE "-Wl,-U,_main")
+
 
 add_executable(AnalogClock MACOSX_BUNDLE
     main.cpp
-    rasterwindow.cpp
-    rasterwindow.h
 )
 
 target_link_libraries(AnalogClock PRIVATE
     MyLib
-    Qt5::Widgets
 )
 
 set_target_properties(AnalogClock PROPERTIES
