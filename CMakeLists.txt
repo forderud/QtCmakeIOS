@@ -5,7 +5,7 @@ project(analogclock VERSION 1.0.0 LANGUAGES CXX)
 set(CMAKE_AUTOMOC ON)
 
 set(CMAKE_BUILD_WITH_INSTALL_RPATH YES)
-set(CMAKE_XCODE_ATTRIBUTE_LD_RUNPATH_SEARCH_PATHS "@executable_path/Frameworks")
+set(CMAKE_INSTALL_RPATH "@executable_path/Frameworks")
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
