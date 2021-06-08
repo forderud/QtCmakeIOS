@@ -19,6 +19,7 @@ add_library(MyLib SHARED
 set_target_properties(MyLib PROPERTIES
     FRAMEWORK TRUE
     MACOSX_FRAMEWORK_IDENTIFIER com.mycompany.MyLib
+    PUBLIC_HEADER MyLib.h
 )
 
 
