@@ -13,6 +13,7 @@ find_package(Qt5 COMPONENTS Widgets REQUIRED)
 add_library(MyLib SHARED
     MyLib.cpp
     MyLib.h
+    FileToEmbed.txt
 )
 
 # configure MyLib as "framework" on iOS
@@ -20,6 +21,7 @@ set_target_properties(MyLib PROPERTIES
     FRAMEWORK TRUE
     MACOSX_FRAMEWORK_IDENTIFIER com.mycompany.MyLib
     PUBLIC_HEADER MyLib.h
+    RESOURCE FileToEmbed.txt
 )
 
 
